@@ -26,7 +26,6 @@ function StartGame({ onPickNumber }: { onPickNumber: any }) {
     }
 
     onPickNumber(chosenNumber);
-    // console.log("Valid Number!");
   }
 
   return (
@@ -63,7 +62,6 @@ export default StartGame;
 const styles = StyleSheet.create({
   title: {
     fontSize: 26,
-    // fontWeight: "bold",
     color: "#111111",
     textAlign: "center",
     paddingTop: 10,
@@ -72,7 +70,6 @@ const styles = StyleSheet.create({
   },
 
   inputContainer: {
-    // flex: 1,
     marginTop: 20,
     marginHorizontal: 24,
     padding: 16,

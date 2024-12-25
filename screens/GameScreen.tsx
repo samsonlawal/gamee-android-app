@@ -24,7 +24,7 @@ let maxBoundary = 100;
 
 function GameScreen(
   this: any,
-  { userNumber, onGameOver }: { userNumber: any; onGameOver: () => void }
+  { userNumber, onGameOver }: { userNumber: any; onGameOver: any }
 ) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
@@ -32,7 +32,7 @@ function GameScreen(
 
   useEffect(() => {
     if (currentGuess === userNumber) {
-      onGameOver();
+      onGameOver(guessRounds.length);
     }
   }, [currentGuess, userNumber, onGameOver]);
 
@@ -89,7 +89,7 @@ function GameScreen(
           </View>
         </View>
       </View>
-      <View>
+      <View style={styles.listContainer}>
         <FlatList
           data={guessRounds}
           renderItem={(itemData) => (
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 18,
     // fontWeight: "bold",
-    paddingTop: 30,
+    paddingTop: 20,
     // paddingBottom: 10,
     fontFamily: "montserrat-mid",
   },
@@ -137,5 +137,10 @@ const styles = StyleSheet.create({
 
   buttonContainer: {
     flex: 1,
+  },
+
+  listContainer: {
+    flex: 1,
+    paddingVertical: 10,
   },
 });

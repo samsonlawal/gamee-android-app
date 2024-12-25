@@ -13,13 +13,9 @@ function GameOver({
   return (
     <View style={styles.rootContainer}>
       <Text style={styles.title}>🎮 Game Over!</Text>
-      {/* <Text style={styles.text}>
-        The mystery number was {answer}. Better luck next time!
-      </Text> */}
-      {/* <Image source={require("../assets/images/success.png")} /> */}
       <View>
         <Text style={styles.text}>
-          It took <Text style={styles.highlight}>{roundsNumber  }</Text> rounds to
+          It took <Text style={styles.highlight}>{roundsNumber}</Text> rounds to
           guess <Text style={styles.highlight}>{userNumber}</Text>
         </Text>
 
@@ -34,7 +30,7 @@ export default GameOver;
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    paddingHorizontal: 24,
+    // paddingHorizontal: 24,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -49,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "#111111",
     textAlign: "center",
-    paddingTop: 20,
+    paddingVertical: 20,
     paddingHorizontal: 20,
     fontFamily: "montserrat-mid",
   },

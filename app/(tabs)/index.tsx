@@ -33,8 +33,9 @@ export default function HomeScreen() {
     setGameIsOver(false);
   }
 
-  function gameOverHandler() {
+  function gameOverHandler(numberOfRounds: any) {
     setGameIsOver(true);
+    setGuesRounds(numberOfRounds);
   }
 
   let screen = <StartGame onPickNumber={pickedNumberHandler} />;
