@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { StyleSheet, TextInput, View, Alert, Text } from "react-native";
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  Alert,
+  Text,
+  Dimensions,
+} from "react-native";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 
 function StartGame({ onPickNumber }: { onPickNumber: any }) {
@@ -29,7 +36,7 @@ function StartGame({ onPickNumber }: { onPickNumber: any }) {
   }
 
   return (
-    <View>
+    <View style={styles.rootContainer}>
       <Text style={styles.title}>Enter Your Number 😎</Text>
 
       <View style={styles.inputContainer}>
@@ -59,7 +66,14 @@ function StartGame({ onPickNumber }: { onPickNumber: any }) {
 
 export default StartGame;
 
+const deviceHeight = Dimensions.get("window").height;
+
 const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+    marginTop: deviceHeight < 400 ? 30 : 40,
+  },
+
   title: {
     fontSize: 26,
     color: "#111111",
