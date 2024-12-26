@@ -5,12 +5,14 @@ import {
   View,
   Alert,
   Text,
-  Dimensions,
+  useWindowDimensions,
 } from "react-native";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 
 function StartGame({ onPickNumber }: { onPickNumber: any }) {
   const [enteredNumber, setEnteredNumber] = useState("");
+
+  const { width, height } = useWindowDimensions();
 
   function numberInputHanler(enteredText: string) {
     setEnteredNumber(enteredText);
@@ -35,8 +37,17 @@ function StartGame({ onPickNumber }: { onPickNumber: any }) {
     onPickNumber(chosenNumber);
   }
 
+  const marginTopDistance = height < 380 ? 30 : 100;
+
   return (
-    <View style={styles.rootContainer}>
+    <View
+      style={
+        (styles.rootContainer,
+        {
+          marginTop: marginTopDistance,
+        })
+      }
+    >
       <Text style={styles.title}>Enter Your Number 😎</Text>
 
       <View style={styles.inputContainer}>
@@ -66,12 +77,12 @@ function StartGame({ onPickNumber }: { onPickNumber: any }) {
 
 export default StartGame;
 
-const deviceHeight = Dimensions.get("window").height;
+// const deviceHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    marginTop: deviceHeight < 400 ? 30 : 40,
+    // marginTop: marginTopDistance,
   },
 
   title: {
